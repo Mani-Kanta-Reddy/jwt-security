@@ -27,7 +27,7 @@ public class LogoutService implements LogoutHandler
         Token storedToken = tokenRepository.findByToken(jwt)
             .orElse(null);
 
-        //If user is submitting a token that is not available with the system or an alread expired/revoked token
+        //If user is submitting a token that is not available within the system or an alread expired/revoked token
         if(storedToken == null || storedToken.isExpired() || storedToken.isRevoked())
         {
             try
